@@ -5,15 +5,6 @@ export enum TokenSymbol {
   ETH = 'ETH',
   SOL = 'SOL',
   USDT = 'USDT',
-  USD = 'USD',
-}
-
-export enum TokenSymbolIcon {
-  BTC = 'BTC',
-  ETH = 'ETH',
-  SOL = 'SOL',
-  USDT = 'USDT',
-  USD = 'USD',
 }
 
 const tokenIcons: Record<TokenSymbol, string> = {
@@ -21,7 +12,6 @@ const tokenIcons: Record<TokenSymbol, string> = {
   [TokenSymbol.ETH]: '/icons/eth.png',
   [TokenSymbol.SOL]: '/icons/sol.png',
   [TokenSymbol.USDT]: '/icons/tether.png',
-  [TokenSymbol.USD]: '/icons/usd.png',
 };
 
 interface TokenIconProps {

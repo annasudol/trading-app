@@ -5,7 +5,7 @@ import { AppConfig } from '@/config/AppConfig';
 import { useAppSelector } from '@/hooks/useRedux';
 
 const MainNavbar = () => {
-  const SYMBOL = useAppSelector((state) => state.symbol);
+  const { token0, token1 } = useAppSelector((state) => state.tradePair);
 
   return (
     <Navbar className="w-full" shouldHideOnScroll>
@@ -14,10 +14,10 @@ const MainNavbar = () => {
           <Link href="/">{AppConfig.emoji}</Link>
         </nav>
         <div className="flex items-center">
-          {SYMBOL && SYMBOL[0] && <TokenIcon token={SYMBOL[0]} size={30} />}
+          {token0 && <TokenIcon token={token0} size={30} />}
           <p className="text-md ml-2 font-medium">
-            {SYMBOL[0]}
-            {SYMBOL[1]}
+            {token0}
+            {token1}
           </p>
         </div>
       </div>
