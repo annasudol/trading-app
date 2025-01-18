@@ -10,7 +10,6 @@ import { OrderBookType } from './book.types';
 
 export function BookComponent() {
   const { isLoading, midPrice, midPriceType, orderBook } = useBook();
-  console.log('orderBook', orderBook);
 
   if (isLoading) return <Loading />;
 
