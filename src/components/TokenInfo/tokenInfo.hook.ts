@@ -30,7 +30,7 @@ export const useTokenInfo = () => {
             ...acc,
             price: formatPrice(parseFloat(item.lastPrice)),
             change: `${parseFloat(item.priceChangePercent).toFixed(2)}%`,
-            volume: item.volume,
+            volume: `${parseFloat(item.volume).toFixed(2)}%`,
             'low price': formatPrice(parseFloat(item.lowPrice)),
             'high price': formatPrice(parseFloat(item.highPrice)),
           };
@@ -53,7 +53,7 @@ export const useTokenInfo = () => {
       const token: TokenInfo = {
         price: formatPrice(parseFloat(data.c)),
         change: `${parseFloat(data.P).toFixed(2)}%`,
-        volume: data.v,
+        volume: `${parseFloat(data.v).toFixed(2)}%`,
         'low price': formatPrice(parseFloat(data.l)),
         'high price': formatPrice(parseFloat(data.h)),
       };
