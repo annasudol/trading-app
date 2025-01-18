@@ -7,8 +7,6 @@ import { formatPrice } from '@/utils/formatPrice';
 
 import type { TokenInfo } from './tokenInfo.types';
 
-// const SYMBOLS = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT'];
-
 export const useTokenInfo = () => {
   const [cryptoData, setCryptoData] = useState<TokenInfo>();
   const { token0, token1 } = useAppSelector((state) => state.tradePair);
@@ -19,7 +17,7 @@ export const useTokenInfo = () => {
     data: initialTickerData,
     error,
     isLoading,
-  } = useGetTickerQuery(tradingPair);
+  } = useGetTickerQuery([tradingPair]);
 
   const wsRef = useRef<WebSocket | null>(null);
   const reconnectIntervalRef = useRef<number>(1000);
@@ -30,18 +28,15 @@ export const useTokenInfo = () => {
         (acc: TokenInfo, item: any) => {
           return {
             ...acc,
-            symbol: item.symbol,
             price: formatPrice(parseFloat(item.lastPrice)),
-            priceChangePercent: `${parseFloat(item.priceChangePercent).toFixed(2)}%`,
+            change: `${parseFloat(item.priceChangePercent).toFixed(2)}%`,
             volume: item.volume,
-            lowPrice: formatPrice(parseFloat(item.lowPrice)),
-            highPrice: formatPrice(parseFloat(item.highPrice)),
+            'low price': formatPrice(parseFloat(item.lowPrice)),
+            'high price': formatPrice(parseFloat(item.highPrice)),
           };
         },
         {},
       );
-
-      console.log(initialData, 'initialTickerData');
 
       setCryptoData(initialData);
     }
@@ -49,19 +44,18 @@ export const useTokenInfo = () => {
 
   const connectWebSocket = () => {
     const ws = new WebSocket(
-      `${BASE_URL_SOCKET}/stream?streams=${tradingPair}@ticker/ethusdt@ticker/solusdt@ticker/dogeusdt@ticker`,
+      `${BASE_URL_SOCKET}/stream?streams=btcusdt@ticker/`,
     );
 
     ws.onmessage = (event: MessageEvent) => {
       const message = JSON.parse(event.data);
       const { data } = message;
       const token: TokenInfo = {
-        symbol: data.s,
         price: formatPrice(parseFloat(data.c)),
-        priceChangePercent: `${parseFloat(data.P).toFixed(2)}%`,
+        change: `${parseFloat(data.P).toFixed(2)}%`,
         volume: data.v,
-        lowPrice: formatPrice(parseFloat(data.l)),
-        highPrice: formatPrice(parseFloat(data.h)),
+        'low price': formatPrice(parseFloat(data.l)),
+        'high price': formatPrice(parseFloat(data.h)),
       };
 
       setCryptoData(token);
@@ -94,5 +88,5 @@ export const useTokenInfo = () => {
     };
   }, [initialTickerData, isLoading, error]);
 
-  return { cryptoData, isLoading, error };
+  return { cryptoData };
 };

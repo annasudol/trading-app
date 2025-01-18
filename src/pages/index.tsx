@@ -7,8 +7,8 @@ import { TokenInfo } from '@/components/TokenInfo';
 const HomePage = () => {
   return (
     <MainLayout>
-      <div className="flex flex-col items-center justify-center gap-8 px-6 sm:py-12 md:flex-row">
-        <TokenInfo.Component />
+      <TokenInfo.Component />
+      <div className="flex flex-col items-center justify-center gap-8 px-6 sm:py-12 lg:flex-row">
         <Chart.Component />
       </div>
     </MainLayout>

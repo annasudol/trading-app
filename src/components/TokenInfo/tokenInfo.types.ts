@@ -1,8 +1,7 @@
 export interface TokenInfo {
-  symbol: string;
   price: string;
-  priceChangePercent: string;
+  change: string;
   volume: string;
-  lowPrice: string;
-  highPrice: string;
+  'low price': string;
+  'high price': string;
 }
