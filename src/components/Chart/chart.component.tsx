@@ -9,7 +9,7 @@ export function ChartComponent() {
   return (
     <div
       ref={chartContainerRef}
-      className="flex min-h-96 flex-1 justify-center overflow-hidden rounded-lg"
+      className="mt-2 flex min-h-[500px] justify-center overflow-hidden rounded-lg"
     />
   );
 }

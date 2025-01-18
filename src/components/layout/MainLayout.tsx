@@ -16,7 +16,7 @@ export function MainLayout(props: PropsWithChildren) {
       />
       <div className="flex min-h-screen flex-col justify-between">
         <MainNavbar />
-        <section className="mx-auto w-full max-w-7xl px-2">
+        <section className="mx-auto w-full max-w-4xl px-2">
           {props.children}
         </section>
         <Footer />

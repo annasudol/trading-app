@@ -2,6 +2,7 @@ import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 
 import { formatPriceQuantity } from '@/utils/formatPriceQuantity';
 
+import { Loading } from '../ui/Loading';
 import { BookHeader } from './book.header';
 import { useBook } from './book.hook';
 import { BookOrders } from './book.orders';
@@ -11,15 +12,10 @@ export function BookComponent() {
   const { isLoading, midPrice, midPriceType, orderBook } = useBook();
   console.log('orderBook', orderBook);
 
-  if (isLoading)
-    return (
-      <div className="min-w-sm flex flex-1 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-sm shadow-md sm:max-w-md">
-        <div className="size-10 animate-spin rounded-full border-8 border-zinc-800 border-t-teal-500" />
-      </div>
-    );
+  if (isLoading) return <Loading />;
 
   return (
-    <div className="min-w-sm flex-1 rounded-lg border border-zinc-800 bg-zinc-900 text-sm shadow-md sm:max-w-md">
+    <div className="min-w-52 rounded-lg border border-zinc-800 bg-zinc-900 text-sm lg:min-w-60">
       <BookHeader />
 
       <div className="flex flex-col pb-2">
@@ -31,7 +27,6 @@ export function BookComponent() {
           >
             {formatPriceQuantity(midPrice.toString())}
           </div>
-
           <div className="text-sm">
             {midPriceType === 'bid' ? (
               <FaArrowUp className="text-green-400" />

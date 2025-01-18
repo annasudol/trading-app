@@ -8,9 +8,11 @@ import { TokenInfo } from '@/components/TokenInfo';
 const HomePage = () => {
   return (
     <MainLayout>
-      <TokenInfo.Component />
-      <div className="mt-2 flex w-full flex-1 flex-col gap-2 sm:flex-row">
-        <Chart.Component />
+      <div className="mt-2 flex w-full max-w-7xl flex-col justify-center gap-2 md:flex-row">
+        <div className="grow">
+          <TokenInfo.Component />
+          <Chart.Component />
+        </div>
         <Book.Component />
       </div>
     </MainLayout>

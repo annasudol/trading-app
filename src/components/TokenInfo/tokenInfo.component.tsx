@@ -17,13 +17,13 @@ export function TokenInfoComponent() {
       {cryptoData &&
         Object.entries(cryptoData).map(([key, value]) => (
           <div key={key}>
-            <p className="px-4 text-xs text-gray-400">
+            <p className="px-2 text-xs text-gray-400 xl:px-4">
               {key
                 .split(' ')
                 .map((el) => capitalizeFirstLetter(el))
                 .join(' ')}
             </p>
-            <p className="px-4 text-xs text-gray-200">{value}</p>
+            <p className="px-2 text-xs text-gray-200 xl:px-4">{value}</p>
           </div>
         ))}
     </div>
