@@ -64,7 +64,7 @@ export const useTokenInfo = () => {
     ws.onclose = () => {
       reconnectIntervalRef.current = Math.min(
         reconnectIntervalRef.current * 2,
-        30000,
+        1000,
       );
       setTimeout(() => connectWebSocket(), reconnectIntervalRef.current);
     };
