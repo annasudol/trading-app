@@ -2,9 +2,9 @@ import { NextSeo } from 'next-seo';
 import type { PropsWithChildren } from 'react';
 import React from 'react';
 
-import { Footer } from '@/components/Footer';
-import { MainHeader } from '@/components/header/MainHeader';
-import { MainNavbar } from '@/components/MainNavbar';
+import { Footer } from '@/components/ui/Footer';
+import { MainHeader } from '@/components/ui/MainHeader';
+import { MainNavbar } from '@/components/ui/MainNavbar';
 import { AppConfig } from '@/config/AppConfig';
 
 export function MainLayout(props: PropsWithChildren) {
