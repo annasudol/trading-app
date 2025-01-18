@@ -32,4 +32,5 @@ export const binanceApi = createApi({
   }),
 });
 
-export const { useGetKlinesQuery } = binanceApi;
+export const { useGetKlinesQuery, useGetBookQuery, useGetTickerQuery } =
+  binanceApi;

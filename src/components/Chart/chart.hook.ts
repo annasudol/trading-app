@@ -3,6 +3,7 @@ import type {
   IChartApi,
   ISeriesApi,
 } from 'lightweight-charts';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { createChart, CrosshairMode } from 'lightweight-charts';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { BASE_URL_SOCKET } from 'src/constants/url';
@@ -78,7 +79,7 @@ export const useChart = () => {
         const [time, open, high, low, close] = kline;
 
         return {
-          time: timeToTimeZone({ originalTime: String(time), timeZone: 'UTC' }),
+          time: timeToTimeZone({ originalTime: String(time) }),
           open: parseFloat(String(open)),
           high: parseFloat(String(high)),
           low: parseFloat(String(low)),
@@ -128,7 +129,6 @@ export const useChart = () => {
       const klinesData: CandlestickData<any> = {
         time: timeToTimeZone({
           originalTime: String(lastJsonMessage.k.t),
-          timeZone: 'UTC',
         }),
         open: parseFloat(String(lastJsonMessage.k.o)),
         high: parseFloat(String(lastJsonMessage.k.h)),

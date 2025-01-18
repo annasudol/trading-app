@@ -1,12 +1,7 @@
 import { fromZonedTime } from 'date-fns-tz';
 
-export function timeToTimeZone({
-  originalTime,
-  timeZone,
-}: {
-  originalTime: string;
-  timeZone: 'Europe/Paris' | 'UTC';
-}) {
+export function timeToTimeZone({ originalTime }: { originalTime: string }) {
+  const timeZone = 'Europe/Paris';
   const zonedDate = fromZonedTime(+originalTime, timeZone, {
     timeZone,
   });
