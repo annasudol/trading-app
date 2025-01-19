@@ -6,14 +6,14 @@ import { MainLayout } from '@/components/layout/MainLayout';
 
 const HomePage = () => {
   return (
-    <MainLayout.Component>
+    <MainLayout>
       <div className="mt-2 flex w-full max-w-7xl flex-col justify-center gap-2 md:flex-row">
         <div className="grow">
           <Chart.Component />
         </div>
         <Book.Component />
       </div>
-    </MainLayout.Component>
+    </MainLayout>
   );
 };
 

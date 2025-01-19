@@ -2,7 +2,7 @@ import { Link } from '@nextui-org/react';
 
 import { AppConfig } from '@/config/AppConfig';
 
-export const FooterComponent = () => (
+const Footer = () => (
   <footer className="h-22 mx-auto max-w-screen-lg p-4 text-center">
     <div className="mx-auto flex-col items-center justify-center">
       <p className="py-1 ">
@@ -27,3 +27,5 @@ export const FooterComponent = () => (
     </div>
   </footer>
 );
+
+export { Footer };

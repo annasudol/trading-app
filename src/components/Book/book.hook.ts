@@ -2,8 +2,8 @@ import { Decimal } from 'decimal.js-light';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { BASE_URL_SOCKET } from 'src/constants/url';
 
+import { useAppSelector } from '@/hooks/useRedux';
 import { useGetBookQuery } from '@/service/binance/api';
-import { useAppSelector } from '@/store/hooks/useRedux';
 
 import type { Order, OrderBookState } from './book.types';
 import { OrderBookType } from './book.types';

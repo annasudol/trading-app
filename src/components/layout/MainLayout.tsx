@@ -3,12 +3,11 @@ import type { PropsWithChildren } from 'react';
 import React from 'react';
 
 import { Footer } from '@/components/layout/Footer';
+import { MainHeader } from '@/components/layout/MainHeader';
 import { MainNavbar } from '@/components/layout/MainNavbar';
 import { AppConfig } from '@/config/AppConfig';
 
-import { Header } from '../Header';
-
-export function MainLayoutComponent(props: PropsWithChildren) {
+export function MainLayout(props: PropsWithChildren) {
   return (
     <div>
       <NextSeo
@@ -17,10 +16,12 @@ export function MainLayoutComponent(props: PropsWithChildren) {
         canonical={AppConfig.url}
       />
       <div className="flex min-h-screen flex-col justify-between">
-        <MainNavbar.Component />
-        <Header.Component />
-        <main className="mx-auto w-full max-w-4xl px-2">{props.children}</main>
-        <Footer.Component />
+        <MainNavbar />
+        <MainHeader />
+        <main className="">
+          <div className="mx-auto max-w-5xl grow px-2">{props.children}</div>
+        </main>
+        <Footer />
       </div>
     </div>
   );

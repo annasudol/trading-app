@@ -1,6 +1,5 @@
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 
-import { Loading } from '@/components/ui/Loading';
 import { formatPriceQuantity } from '@/utils/formatPriceQuantity';
 
 import { BookHeader } from './book.header';
@@ -11,7 +10,7 @@ import { OrderBookType } from './book.types';
 export function BookComponent() {
   const { isLoading, midPrice, midPriceType, orderBook } = useBook();
 
-  if (isLoading) return <Loading.Component />;
+  if (isLoading) return <></>;
 
   return (
     <div className="min-w-52 rounded-lg bg-zinc-900 text-sm lg:min-w-60">
