@@ -8,7 +8,4 @@ export interface OHLCV {
   closeTime: number;
   quoteAssetVolume: string;
   numberOfTrades: number;
-  takerBuyBaseAssetVolume: string;
-  takerBuyQuoteAssetVolume: string;
-  ignore: string;
 }
