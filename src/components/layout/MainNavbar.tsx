@@ -17,7 +17,7 @@ const MainNavbar = () => {
         </nav>
         <div className="flex min-w-96 items-center">
           <div className="flex w-56 items-center">
-            {token0 && <TokenIcon token={token0} size={30} />}
+            {token0 && <TokenIcon.Component token={token0} size={30} />}
             <p className="text-md ml-2 font-medium">
               {token0}
               {token1}

@@ -1,21 +1,21 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
-import { TokenSymbol } from '@/components/ui/TokenIcon';
+import { TokenIconType } from '@/components/ui/TokenIcon/tokenIcon.types';
 
 const initialState = {
-  token0: TokenSymbol.BTC,
-  token1: TokenSymbol.USDT,
+  token0: TokenIconType.BTC,
+  token1: TokenIconType.USDT,
 };
 
 const tradePair = createSlice({
   name: 'pair',
   initialState,
   reducers: {
-    updateToken0(state, action: PayloadAction<TokenSymbol>) {
+    updateToken0(state, action: PayloadAction<TokenIconType>) {
       return { ...state, token0: action.payload };
     },
-    updateToken1(state, action: PayloadAction<TokenSymbol>) {
+    updateToken1(state, action: PayloadAction<TokenIconType>) {
       return { ...state, token1: action.payload };
     },
   },
