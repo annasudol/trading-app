@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
-import { TokenIconType } from '@/components/ui/TokenIcon/tokenIcon.types';
+import { TokenIconType } from '@/components/ui/TokenIcon';
 
 const initialState = {
   token0: TokenIconType.BTC,

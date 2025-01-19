@@ -1,10 +1,8 @@
 import { Select, SelectItem } from '@nextui-org/react';
 import { useDispatch } from 'react-redux';
 
-import { TokenIcon } from '@/components/ui/TokenIcon';
+import { TokenIcon, TokenIconType } from '@/components/ui/TokenIcon';
 import { updateToken0 } from '@/store/slices/tradePair';
-
-import { TokenIconType } from './TokenIcon/tokenIcon.types';
 
 export default function TokenSelector() {
   const tokens = [TokenIconType.BTC, TokenIconType.ETH, TokenIconType.SOL];
