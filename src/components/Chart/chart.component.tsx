@@ -4,7 +4,7 @@ import { useChart } from './chart.hook';
 export function ChartComponent() {
   const { isLoading, chartContainerRef } = useChart();
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading.Component />;
 
   return (
     <div

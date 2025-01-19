@@ -6,7 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { MainNavbar } from '@/components/layout/MainNavbar';
 import { AppConfig } from '@/config/AppConfig';
 
-export function MainLayout(props: PropsWithChildren) {
+export function MainLayoutComponent(props: PropsWithChildren) {
   return (
     <div>
       <NextSeo
@@ -15,11 +15,11 @@ export function MainLayout(props: PropsWithChildren) {
         canonical={AppConfig.url}
       />
       <div className="flex min-h-screen flex-col justify-between">
-        <MainNavbar />
+        <MainNavbar.Component />
         <section className="mx-auto w-full max-w-4xl px-2">
           {props.children}
         </section>
-        <Footer />
+        <Footer.Component />
       </div>
     </div>
   );

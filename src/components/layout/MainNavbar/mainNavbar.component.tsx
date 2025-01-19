@@ -4,9 +4,9 @@ import { TokenIcon } from '@/components/ui/TokenIcon';
 import { AppConfig } from '@/config/AppConfig';
 import { useAppSelector } from '@/hooks/useRedux';
 
-import TokenSelector from '../ui/TokenSelector';
+import TokenSelector from '../../ui/TokenSelector';
 
-const MainNavbar = () => {
+export const MainNavbarComponent = () => {
   const { token0, token1 } = useAppSelector((state) => state.tradePair);
 
   return (
@@ -29,5 +29,3 @@ const MainNavbar = () => {
     </Navbar>
   );
 };
-
-export { MainNavbar };

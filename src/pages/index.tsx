@@ -7,7 +7,7 @@ import { TokenInfo } from '@/components/TokenInfo';
 
 const HomePage = () => {
   return (
-    <MainLayout>
+    <MainLayout.Component>
       <div className="mt-2 flex w-full max-w-7xl flex-col justify-center gap-2 md:flex-row">
         <div className="grow">
           <TokenInfo.Component />
@@ -15,7 +15,7 @@ const HomePage = () => {
         </div>
         <Book.Component />
       </div>
-    </MainLayout>
+    </MainLayout.Component>
   );
 };
 
