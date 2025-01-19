@@ -4,7 +4,7 @@ import { TokenIcon } from '@/components/ui/TokenIcon';
 import { AppConfig } from '@/config/AppConfig';
 import { useAppSelector } from '@/hooks/useRedux';
 
-import TokenSelector from './TokenSelector';
+import TokenSelector from '../ui/TokenSelector';
 
 const MainNavbar = () => {
   const { token0, token1 } = useAppSelector((state) => state.tradePair);

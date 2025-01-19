@@ -1,12 +1,12 @@
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 
+import { Loading } from '@/components/ui/Loading';
 import { formatPriceQuantity } from '@/utils/formatPriceQuantity';
 
-import { Loading } from '../ui/Loading';
 import { BookHeader } from './book.header';
 import { useBook } from './book.hook';
 import { BookOrders } from './book.orders';
-import { OrderBookType } from './book.types';
+import { OrderBookType } from './book.utils';
 
 export function BookComponent() {
   const { isLoading, midPrice, midPriceType, orderBook } = useBook();
@@ -18,7 +18,7 @@ export function BookComponent() {
       <BookHeader />
 
       <div className="flex flex-col pb-2">
-        <BookOrders orders={orderBook.asks} type={OrderBookType.ASK} />
+        <BookOrders orders={orderBook.ask} type={OrderBookType.ASK} />
 
         <span className="my-4 flex w-full flex-1 items-center pl-4 text-left text-lg font-bold ">
           <div

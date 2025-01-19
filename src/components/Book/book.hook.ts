@@ -6,7 +6,7 @@ import { useAppSelector } from 'src/hooks/useRedux';
 import { useGetBookQuery } from '@/service/binance/api';
 
 import type { Order, OrderBookState } from './book.types';
-import { OrderBookType } from './book.types';
+import { OrderBookType } from './book.utils';
 
 const LEVELS = 10;
 
@@ -21,8 +21,8 @@ export const useBook = () => {
   });
 
   const [orderBook, setOrderBook] = useState<OrderBookState>({
-    bid: [],
-    asks: [],
+    [OrderBookType.ASK]: [],
+    [OrderBookType.BID]: [],
   });
   const [midPrice, setMidPrice] = useState(new Decimal(0));
   const [midPriceType, setMidPriceType] = useState<OrderBookType>();
@@ -45,23 +45,23 @@ export const useBook = () => {
   };
 
   const initializeOrderBook = (data: any) => {
-    const bids = data.bids.map(([price, quantity]: [string, string]) => ({
+    const bid = data.bids.map(([price, quantity]: [string, string]) => ({
       price,
       quantity,
     }));
-    const asks = data.asks.map(([price, quantity]: [string, string]) => ({
+    const ask = data.asks.map(([price, quantity]: [string, string]) => ({
       price,
       quantity,
     }));
 
     setOrderBook({
-      bid: calculatePercentages(bids),
-      asks: calculatePercentages(asks),
+      [OrderBookType.BID]: calculatePercentages(bid),
+      [OrderBookType.ASK]: calculatePercentages(ask),
     });
 
-    if (bids.length > 0 && asks.length > 0) {
-      const highestBid = parseFloat(bids[0].price);
-      const lowestAsk = new Decimal(asks[0].price);
+    if (bid.length > 0 && ask.length > 0) {
+      const highestBid = parseFloat(bid[0].price);
+      const lowestAsk = new Decimal(ask[0].price);
       const midPriceCalc = new Decimal(highestBid).add(lowestAsk).div(2);
 
       setMidPrice(midPriceCalc);
@@ -88,7 +88,7 @@ export const useBook = () => {
       });
 
       orders.sort((a, b) =>
-        type === 'bid'
+        type === OrderBookType.BID
           ? parseFloat(b.price) - parseFloat(a.price)
           : parseFloat(a.price) - parseFloat(b.price),
       );
@@ -107,7 +107,7 @@ export const useBook = () => {
       const { b, a } = JSON.parse(event.data);
       setOrderBook((prevOrderBook) => ({
         bid: updateOrderBook(prevOrderBook.bid, b, OrderBookType.BID),
-        asks: updateOrderBook(prevOrderBook.asks, a, OrderBookType.ASK),
+        ask: updateOrderBook(prevOrderBook.ask, a, OrderBookType.ASK),
       }));
 
       if (a.length > 0 && b.length > 0) {
@@ -127,6 +127,7 @@ export const useBook = () => {
     };
 
     ws.onerror = (error) => {
+      // eslint-disable-next-line no-console
       console.error('WebSocket error:', error);
       ws.close();
     };

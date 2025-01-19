@@ -1,4 +1,7 @@
-import { OrderBookType } from './book.types';
+export enum OrderBookType {
+  ASK = 'ask',
+  BID = 'bid',
+}
 
 export const COLOR_ORDER = {
   [OrderBookType.ASK]: '#0ECB81',

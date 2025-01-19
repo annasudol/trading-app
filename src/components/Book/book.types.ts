@@ -1,9 +1,7 @@
 import type Decimal from 'decimal.js-light';
 
-export enum OrderBookType {
-  BID = 'bid',
-  ASK = 'asks',
-}
+import type { OrderBookType } from './book.utils';
+
 export interface OrderBookProps {
   orders: Order[];
   type: OrderBookType;
@@ -16,6 +14,6 @@ export interface Order {
 }
 
 export interface OrderBookState {
-  bid: Order[];
-  asks: Order[];
+  [OrderBookType.ASK]: Order[];
+  [OrderBookType.BID]: Order[];
 }
