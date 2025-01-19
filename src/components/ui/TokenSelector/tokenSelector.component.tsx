@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { TokenIcon, TokenIconType } from '@/components/ui/TokenIcon';
 import { updateToken0 } from '@/store/slices/tradePair';
 
-export default function TokenSelector() {
+export default function TokenSelectorComponent() {
   const tokens = [TokenIconType.BTC, TokenIconType.ETH, TokenIconType.SOL];
   const dispath = useDispatch();
   return (

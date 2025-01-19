@@ -1,10 +1,9 @@
 import { Link, Navbar } from '@nextui-org/react';
 
 import { TokenIcon } from '@/components/ui/TokenIcon';
+import { TokenSelector } from '@/components/ui/TokenSelector';
 import { AppConfig } from '@/config/AppConfig';
 import { useAppSelector } from '@/hooks/useRedux';
-
-import TokenSelector from '../../ui/TokenSelector';
 
 export const MainNavbarComponent = () => {
   const { token0, token1 } = useAppSelector((state) => state.tradePair);
@@ -23,7 +22,7 @@ export const MainNavbarComponent = () => {
               {token1}
             </p>
           </div>
-          <TokenSelector />
+          <TokenSelector.Component />
         </div>
       </div>
     </Navbar>
