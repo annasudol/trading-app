@@ -18,7 +18,7 @@ export function MainLayout(props: PropsWithChildren) {
       <div className="flex min-h-screen flex-col justify-between">
         <MainNavbar />
         <MainHeader />
-        <main className="">
+        <main>
           <div className="mx-auto max-w-5xl grow px-2">{props.children}</div>
         </main>
         <Footer />

@@ -7,7 +7,7 @@ const MainHeader = () => {
   const { token0, token1 } = useAppSelector((state) => state.tradePair);
 
   return (
-    <header className="">
+    <header>
       <div className="mx-auto max-w-screen-lg px-2">
         <div className="flex items-center justify-start">
           {token0 && <TokenIcon token={token0} size={30} />}
