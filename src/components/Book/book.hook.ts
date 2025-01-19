@@ -1,7 +1,7 @@
 import { Decimal } from 'decimal.js-light';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { BASE_URL_SOCKET } from 'src/constants/url';
 
+import { BASE_URL_SOCKET } from '@/config/url';
 import { useAppSelector } from '@/hooks/useRedux';
 import { useGetBookQuery } from '@/service/binance/api';
 

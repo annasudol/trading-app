@@ -5,8 +5,8 @@ import type {
 } from 'lightweight-charts';
 import { createChart, CrosshairMode } from 'lightweight-charts';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
-import { BASE_URL_SOCKET } from 'src/constants/url';
 
+import { BASE_URL_SOCKET } from '@/config/url';
 import { useAppSelector } from '@/hooks/useRedux';
 import { useGetKlinesQuery } from '@/service/binance/api';
 import { timeToTimeZone } from '@/utils/timeToTimeZone';
