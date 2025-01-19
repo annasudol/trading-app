@@ -8,8 +8,8 @@ import { createChart, CrosshairMode } from 'lightweight-charts';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { BASE_URL_SOCKET } from 'src/constants/url';
 
-import { useAppSelector } from '@/hooks/useRedux';
 import { useGetKlinesQuery } from '@/service/binance/api';
+import { useAppSelector } from '@/store/hooks/useRedux';
 import { timeToTimeZone } from '@/utils/timeToTimeZone';
 
 import { colors } from './chart.utils';

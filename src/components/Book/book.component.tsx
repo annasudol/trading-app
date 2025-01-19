@@ -14,7 +14,7 @@ export function BookComponent() {
   if (isLoading) return <Loading.Component />;
 
   return (
-    <div className="min-w-52 rounded-lg border border-zinc-800 bg-zinc-900 text-sm lg:min-w-60">
+    <div className="min-w-52 rounded-lg bg-zinc-900 text-sm lg:min-w-60">
       <BookHeader />
 
       <div className="flex flex-col pb-2">

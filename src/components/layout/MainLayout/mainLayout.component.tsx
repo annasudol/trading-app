@@ -6,6 +6,8 @@ import { Footer } from '@/components/layout/Footer';
 import { MainNavbar } from '@/components/layout/MainNavbar';
 import { AppConfig } from '@/config/AppConfig';
 
+import { Header } from '../Header';
+
 export function MainLayoutComponent(props: PropsWithChildren) {
   return (
     <div>
@@ -16,9 +18,8 @@ export function MainLayoutComponent(props: PropsWithChildren) {
       />
       <div className="flex min-h-screen flex-col justify-between">
         <MainNavbar.Component />
-        <section className="mx-auto w-full max-w-4xl px-2">
-          {props.children}
-        </section>
+        <Header.Component />
+        <main className="mx-auto w-full max-w-4xl px-2">{props.children}</main>
         <Footer.Component />
       </div>
     </div>

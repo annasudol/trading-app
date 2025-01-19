@@ -42,10 +42,5 @@
     }
   },
   "exclude": ["./out/**/*", "./node_modules/**/*"],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "src/hooks/useLiquidatets"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

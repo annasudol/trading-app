@@ -3,4 +3,6 @@ export enum TokenIconType {
   ETH = 'ETH',
   SOL = 'SOL',
   USDT = 'USDT',
+  AVAX = 'AVAX',
+  XRP = 'XRP',
 }

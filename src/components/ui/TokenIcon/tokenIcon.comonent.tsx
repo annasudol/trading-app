@@ -7,6 +7,8 @@ const tokenIcons: Record<TokenIconType, string> = {
   [TokenIconType.ETH]: '/icons/eth.png',
   [TokenIconType.SOL]: '/icons/sol.png',
   [TokenIconType.USDT]: '/icons/tether.png',
+  [TokenIconType.AVAX]: '/icons/avalanche.png',
+  [TokenIconType.XRP]: '/icons/xrp.png',
 };
 
 interface TokenIconProps {

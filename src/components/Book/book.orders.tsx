@@ -1,5 +1,6 @@
 import Decimal from 'decimal.js-light';
 
+import { AppConfig } from '@/config/AppConfig';
 import { formatPriceQuantity } from '@/utils/formatPriceQuantity';
 
 import type { OrderBookProps } from './book.types';
@@ -34,8 +35,7 @@ export const BookOrders = ({ orders, type }: OrderBookProps) => {
                 {quantity}
               </span>
               <span className="flex-1 text-right text-xs text-gray-200">
-                {amount.toFixed(2)}
-                {/* {new Intl.NumberFormat('en-US', { style: 'decimal', currency: 'USD' }).format(amount)} */}
+                {amount.toFixed(AppConfig.decimals)}
               </span>
             </div>
 

@@ -8,4 +8,5 @@ export const AppConfig = {
   url: 'https://github.com/annasudol/trading-dashboard',
   author: 'Anna Sudol',
   author_git: 'https://github.com/annasudol',
+  decimals: 2,
 };

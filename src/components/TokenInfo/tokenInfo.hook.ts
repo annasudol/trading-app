@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { BASE_URL_SOCKET } from 'src/constants/url';
 
-import { useAppSelector } from '@/hooks/useRedux';
+import { AppConfig } from '@/config/AppConfig';
 import { useGetTickerQuery } from '@/service/binance/api';
+import { useAppSelector } from '@/store/hooks/useRedux';
 import { formatPrice } from '@/utils/formatPrice';
 
 import type { TokenInfo } from './tokenInfo.types';
@@ -29,8 +30,8 @@ export const useTokenInfo = () => {
           return {
             ...acc,
             price: formatPrice(parseFloat(item.lastPrice)),
-            change: `${parseFloat(item.priceChangePercent).toFixed(2)}%`,
-            volume: `${parseFloat(item.volume).toFixed(2)}%`,
+            change: `${parseFloat(item.priceChangePercent).toFixed(AppConfig.decimals)}%`,
+            volume: `${parseFloat(item.volume).toFixed(AppConfig.decimals)}`,
             'low price': formatPrice(parseFloat(item.lowPrice)),
             'high price': formatPrice(parseFloat(item.highPrice)),
           };
@@ -44,7 +45,7 @@ export const useTokenInfo = () => {
 
   const connectWebSocket = () => {
     const ws = new WebSocket(
-      `${BASE_URL_SOCKET}/stream?streams=btcusdt@ticker/`,
+      `${BASE_URL_SOCKET}/stream?streams=${tradingPair.toLowerCase()}@ticker`,
     );
 
     ws.onmessage = (event: MessageEvent) => {
@@ -52,8 +53,8 @@ export const useTokenInfo = () => {
       const { data } = message;
       const token: TokenInfo = {
         price: formatPrice(parseFloat(data.c)),
-        change: `${parseFloat(data.P).toFixed(2)}%`,
-        volume: `${parseFloat(data.v).toFixed(2)}%`,
+        change: `${parseFloat(data.P).toFixed(AppConfig.decimals)}%`,
+        volume: `${parseFloat(data.v).toFixed(AppConfig.decimals)}%`,
         'low price': formatPrice(parseFloat(data.l)),
         'high price': formatPrice(parseFloat(data.h)),
       };
@@ -64,7 +65,7 @@ export const useTokenInfo = () => {
     ws.onclose = () => {
       reconnectIntervalRef.current = Math.min(
         reconnectIntervalRef.current * 2,
-        1000,
+        1,
       );
       setTimeout(() => connectWebSocket(), reconnectIntervalRef.current);
     };
