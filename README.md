@@ -2,6 +2,9 @@
 
 A simple, functional dashboard to display real-time cryptocurrency market data using the Binance API and WebSocket.
 
+
+![alt page view](https://github.com/annasudol/trading-app/blob/main/public/app.png)
+
 # Table of content
 
 ## 🌟 Features
@@ -19,8 +22,8 @@ A simple, functional dashboard to display real-time cryptocurrency market data u
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/annasudol
-cd ..
+git clone https://github.com/annasudol/trading-app
+cd trading-app
 ```
 
 2. Install dependencies:
