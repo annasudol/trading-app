@@ -6,7 +6,7 @@ import { useAppSelector } from 'src/hooks/useRedux';
 import { useGetBookQuery } from '@/service/binance/api';
 
 import type { Order, OrderBookState } from './book.types';
-import { OrderBookType } from './book.utils';
+import { OrderBookType } from './book.types';
 
 const LEVELS = 10;
 

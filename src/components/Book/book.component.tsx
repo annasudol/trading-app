@@ -6,7 +6,7 @@ import { formatPriceQuantity } from '@/utils/formatPriceQuantity';
 import { BookHeader } from './book.header';
 import { useBook } from './book.hook';
 import { BookOrders } from './book.orders';
-import { OrderBookType } from './book.utils';
+import { OrderBookType } from './book.types';
 
 export function BookComponent() {
   const { isLoading, midPrice, midPriceType, orderBook } = useBook();
